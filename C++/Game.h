@@ -16,6 +16,7 @@ class Game{
 		bool wrongAnswer();
 
 	private:
+		void readQuestions(int number);
 		void askQuestion();
 		std::string currentCategory();
 		bool didPlayerWin();

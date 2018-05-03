@@ -5,7 +5,12 @@
 using namespace std;
 
 Game::Game() : currentPlayer(0), places(), purses(){
-	for (int i = 0; i < 50; i++)
+	readQuestions(50);
+}
+
+void Game::readQuestions(int number)
+{
+	for (int i = 0; i < number; i++)
 	{
 		ostringstream oss (ostringstream::out);
 		oss << "Pop Question " << i;
@@ -25,6 +30,7 @@ Game::Game() : currentPlayer(0), places(), purses(){
 		oss.clear();
 		oss << "Rock Question " << i;
 		rockQuestions.push_back(oss.str());
+		
 	}
 }
 
