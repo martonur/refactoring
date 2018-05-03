@@ -21,16 +21,11 @@ Game::Game() : currentPlayer(0), places(), purses(){
 		oss << "Sports Question " << i;
 		sportsQuestions.push_back(oss.str());
 
-
-		rockQuestions.push_back(createRockQuestion(i));
+		oss.str("");
+		oss.clear();
+		oss << "Rock Question " << i;
+		rockQuestions.push_back(oss.str());
 	}
-}
-
-string Game::createRockQuestion(int index)
-{
-	char indexStr[127];
-	sprintf(indexStr, "Rock Question %d", index);
-	return indexStr;
 }
 
 bool Game::isPlayable()

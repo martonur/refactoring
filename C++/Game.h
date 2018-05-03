@@ -8,7 +8,6 @@
 class Game{
 	public:
 		Game();
-		std::string createRockQuestion(int index);
 		bool isPlayable();
 		bool add(std::string playerName);
 		int howManyPlayers();
