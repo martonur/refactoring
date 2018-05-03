@@ -1,6 +1,4 @@
 ﻿#include "Game.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
 #include <sstream>
 
@@ -9,19 +7,20 @@ using namespace std;
 Game::Game() : currentPlayer(0), places(), purses(){
 	for (int i = 0; i < 50; i++)
 	{
-
 		ostringstream oss (ostringstream::out);
 		oss << "Pop Question " << i;
-
 		popQuestions.push_back(oss.str());
+		
+		oss.str("");
+		oss.clear();
+		oss << "Science Question " << i;
+		scienceQuestions.push_back(oss.str());
 
-		char str[255];
-		sprintf(str, "Science Question %d", i);
-		scienceQuestions.push_back(str);
+		oss.str("");
+		oss.clear();
+		oss << "Sports Question " << i;
+		sportsQuestions.push_back(oss.str());
 
-		char str1[255];
-		sprintf(str1, "Sports Question %d", i);
-		sportsQuestions.push_back(str1);
 
 		rockQuestions.push_back(createRockQuestion(i));
 	}

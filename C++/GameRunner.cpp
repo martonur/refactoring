@@ -1,5 +1,4 @@
-﻿#include <stdlib.h>
-#include "Game.h"
+﻿#include "Game.h"
 
 static bool notAWinner;
 
