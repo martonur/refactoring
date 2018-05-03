@@ -1,3 +1,8 @@
 Debug
 .project
 .cproject
+a.out
+a.out.dSYM
+.vscode
+current_output.txt
+difference.txt
