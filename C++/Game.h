@@ -2,7 +2,6 @@
 #define GAME_H_
 
 #include "Player.h"
-#include <iostream>
 #include <list>
 #include <vector>
 
@@ -12,34 +11,34 @@ class Game
 {
 	public:
 		Game();
-		void startGame();
-		bool isPlayable();
 		bool addPlayer(std::string playerName);
-		void startTurn();
-		int howManyPlayers();
-		void roll(int roll);
-		
+		void startGame();	
 	private:
-		void correctAnswer();
-		void wrongAnswer();
-		void nextPlayerIndex();
+		void readQuestions(int number);
+		int howManyPlayers();
+		bool isPlayable();
+		void startTurn();
 		void setCurrentPlayer();
+		void roll(int roll);
 		void checkPlayerStatus();
 		void isRollOdd();
 		void movePlayer();
-		void getAnswer();
-		void readQuestions(int number);
-		void askQuestion();
 		std::string currentCategory();
+		void askQuestion();
+		void getAnswer();
+		void wrongAnswer();
+		void correctAnswer();
 		bool didPlayerWin();
+		void nextPlayerIndex();
+
+		int dice;
 		std::vector<Player> players;
+		int currentPlayerIndex;
+		Player* currentPlayer;
 		std::list<std::string> popQuestions;
 		std::list<std::string> scienceQuestions;
 		std::list<std::string> sportsQuestions;
-		std::list<std::string> rockQuestions;
-		Player* currentPlayer;
-		int currentPlayerIndex;
-		int dice;
+		std::list<std::string> rockQuestions;	
 };
 
 #endif /* GAME_H_ */
