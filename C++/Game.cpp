@@ -136,7 +136,7 @@ void Game::getAnswer()
 	}
 	else
 	{
-		wasCorrectlyAnswered();
+		correctAnswer();
 	}
 }
 
@@ -150,7 +150,7 @@ string Game::currentCategory()
 	return "Rock";
 }
 
-void Game::wasCorrectlyAnswered()
+void Game::correctAnswer()
 {
 	cout << "Answer was corrent!!!!" << endl;
 	currentPlayer -> addCoin();

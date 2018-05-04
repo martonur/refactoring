@@ -20,7 +20,7 @@ class Game
 		
 
 	private:
-		void wasCorrectlyAnswered();
+		void correctAnswer();
 		void wrongAnswer();
 		void nextPlayerIndex();
 		void setCurrentPlayer();
