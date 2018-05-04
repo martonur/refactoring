@@ -93,7 +93,6 @@ void Game::isRollOdd()
 	{
 		cout << currentPlayer -> getName() << " is not getting out of the penalty box" << endl;
 		nextPlayerIndex();
-		startTurn();
 	}
 }
 
@@ -158,7 +157,6 @@ void Game::correctAnswer()
 	if(didPlayerWin())
 	{
 		nextPlayerIndex();
-		startTurn();
 	}
 }
 
@@ -168,7 +166,6 @@ void Game::wrongAnswer()
 	cout << currentPlayer -> getName() + " was sent to the penalty box" << endl;
 	currentPlayer -> sendToPenaltyBox();
 	nextPlayerIndex();
-	startTurn();
 }
 
 
@@ -184,6 +181,7 @@ void Game::nextPlayerIndex()
 	{
 		currentPlayerIndex = 0;
 	}
+	startTurn();
 }
 
 void Game::setCurrentPlayer()
