@@ -9,6 +9,14 @@ Game::Game() : currentPlayerIndex(0)
 	readQuestions(50);
 }
 
+bool Game::addPlayer(string playerName){
+	Player newPlayer = Player(playerName);
+	players.push_back(newPlayer);
+	cout << playerName << " was added" << endl;
+	cout << "They are player number " << players.size() << endl;
+	return true;
+}
+
 void Game::startGame()
 {
 	if(isPlayable())
@@ -21,48 +29,6 @@ void Game::startGame()
 	}
 }
 
-void Game::readQuestions(int number)
-{
-	for (int i = 0; i < number; i++)
-	{
-		ostringstream oss (ostringstream::out);
-		oss << "Pop Question " << i;
-		popQuestions.push_back(oss.str());
-		
-		oss.str("");
-		oss.clear();
-		oss << "Science Question " << i;
-		scienceQuestions.push_back(oss.str());
-
-		oss.str("");
-		oss.clear();
-		oss << "Sports Question " << i;
-		sportsQuestions.push_back(oss.str());
-
-		oss.str("");
-		oss.clear();
-		oss << "Rock Question " << i;
-		rockQuestions.push_back(oss.str());		
-	}
-}
-
-bool Game::isPlayable()
-{
-	return (howManyPlayers() >= 2);
-}
-
-bool Game::addPlayer(string playerName){
-	Player newPlayer = Player(playerName);
-	players.push_back(newPlayer);
-	cout << playerName << " was added" << endl;
-	cout << "They are player number " << players.size() << endl;
-	return true;
-}
-
-int Game::howManyPlayers()
-{
-	return players.size();
-}
 
 void Game::startTurn()
 {
@@ -108,11 +74,6 @@ void Game::isRollOdd()
 	}
 }
 
-void Game::roll(int roll)
-{
-	dice = roll;
-}
-
 void Game::askQuestion()
 {
 	std::string category = currentCategory();
@@ -149,16 +110,6 @@ void Game::getAnswer()
 	{
 		correctAnswer();
 	}
-}
-
-
-string Game::currentCategory()
-{
-	int place = currentPlayer -> getPlace();
-	if (place == 0 || place == 4 || place == 8) return "Pop";
-	else if (place == 1 || place == 5 || place == 9) return "Science";
-	else if (place == 2 || place == 6 || place == 10) return "Sports";
-	return "Rock";
 }
 
 void Game::correctAnswer()
@@ -199,4 +150,53 @@ void Game::nextPlayerIndex()
 void Game::setCurrentPlayer()
 {
 	currentPlayer = &players[currentPlayerIndex];
+}
+
+void Game::readQuestions(int number)
+{
+	for (int i = 0; i < number; i++)
+	{
+		ostringstream oss (ostringstream::out);
+		oss << "Pop Question " << i;
+		popQuestions.push_back(oss.str());
+		
+		oss.str("");
+		oss.clear();
+		oss << "Science Question " << i;
+		scienceQuestions.push_back(oss.str());
+
+		oss.str("");
+		oss.clear();
+		oss << "Sports Question " << i;
+		sportsQuestions.push_back(oss.str());
+
+		oss.str("");
+		oss.clear();
+		oss << "Rock Question " << i;
+		rockQuestions.push_back(oss.str());		
+	}
+}
+
+bool Game::isPlayable()
+{
+	return (howManyPlayers() >= 2);
+}
+
+int Game::howManyPlayers()
+{
+	return players.size();
+}
+
+string Game::currentCategory()
+{
+	int place = currentPlayer -> getPlace();
+	if (place == 0 || place == 4 || place == 8) return "Pop";
+	else if (place == 1 || place == 5 || place == 9) return "Science";
+	else if (place == 2 || place == 6 || place == 10) return "Sports";
+	return "Rock";
+}
+
+void Game::roll(int roll)
+{
+	dice = roll;
 }
