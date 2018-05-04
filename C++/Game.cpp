@@ -113,15 +113,10 @@ void Game::askQuestion()
 
 string Game::currentCategory()
 {
-	if (currentPlayer -> getPlace() == 0) return "Pop";
-	if (currentPlayer -> getPlace() == 4) return "Pop";
-	if (currentPlayer -> getPlace() == 8) return "Pop";
-	if (currentPlayer -> getPlace() == 1) return "Science";
-	if (currentPlayer -> getPlace() == 5) return "Science";
-	if (currentPlayer -> getPlace() == 9) return "Science";
-	if (currentPlayer -> getPlace() == 2) return "Sports";
-	if (currentPlayer -> getPlace() == 6) return "Sports";
-	if (currentPlayer -> getPlace() == 10) return "Sports";
+	int place = currentPlayer -> getPlace();
+	if (place == 0 || place == 4 || place == 8) return "Pop";
+	else if (place == 1 || place == 5 || place == 9) return "Science";
+	else if (place == 2 || place == 6 || place == 10) return "Sports";
 	return "Rock";
 }
 
