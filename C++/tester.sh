@@ -3,7 +3,7 @@
 rm -f a.out
 rm -f current_output.txt
 
-g++ -Wall -g -O GameRunner.cpp Game.cpp
+g++ -Wall -g -O GameRunner.cpp Game.cpp Player.cpp
 
 if [[ -s a.out ]]
 then

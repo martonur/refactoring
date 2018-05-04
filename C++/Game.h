@@ -1,35 +1,39 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+#include "Player.h"
 #include <iostream>
 #include <list>
 #include <vector>
 
-class Game{
+class Player;
+
+class Game
+{
 	public:
 		Game();
 		bool isPlayable();
-		bool add(std::string playerName);
+		bool addPlayer(std::string playerName);
 		int howManyPlayers();
 		void roll(int roll);
 		bool wasCorrectlyAnswered();
 		bool wrongAnswer();
 
 	private:
+		void nextPlayerIndex();
+		void setCurrentPlayer();
 		void readQuestions(int number);
 		void askQuestion();
 		std::string currentCategory();
 		bool didPlayerWin();
-		std::vector<std::string> players;
-		int places[6];
-		int purses[6];
-		bool inPenaltyBox[6];
+		std::vector<Player> players;
 		std::list<std::string> popQuestions;
 		std::list<std::string> scienceQuestions;
 		std::list<std::string> sportsQuestions;
 		std::list<std::string> rockQuestions;
-		int currentPlayer;
-		bool isGettingOutOfPenaltyBox;
+		Player* currentPlayer;
+		int currentPlayerIndex;
+		bool isGettingOutOfPenaltyBox;		
 };
 
 #endif /* GAME_H_ */
