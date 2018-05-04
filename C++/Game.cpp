@@ -124,6 +124,19 @@ void Game::askQuestion()
 		cout << rockQuestions.front() << endl;
 		rockQuestions.pop_front();
 	}
+	getAnswer();
+}
+
+void Game::getAnswer()
+{
+	if (rand() % 9 == 7)
+	{
+		wrongAnswer();
+	}
+	else
+	{
+		wasCorrectlyAnswered();
+	}
 }
 
 
@@ -136,23 +149,25 @@ string Game::currentCategory()
 	return "Rock";
 }
 
-bool Game::wasCorrectlyAnswered()
+void Game::wasCorrectlyAnswered()
 {
 	cout << "Answer was corrent!!!!" << endl;
 	currentPlayer -> addCoin();
 	cout << currentPlayer -> getName() << " now has " << currentPlayer -> getPurse() << " Gold Coins." << endl;
-	bool winner = didPlayerWin();
-	nextPlayerIndex();
-	return winner;
+	if(didPlayerWin())
+	{
+		nextPlayerIndex();
+		startTurn();
+	}
 }
 
-bool Game::wrongAnswer()
+void Game::wrongAnswer()
 {
 	cout << "Question was incorrectly answered" << endl;
 	cout << currentPlayer -> getName() + " was sent to the penalty box" << endl;
 	currentPlayer -> sendToPenaltyBox();
 	nextPlayerIndex();
-	return true;
+	startTurn();
 }
 
 

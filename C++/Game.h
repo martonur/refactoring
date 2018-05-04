@@ -17,15 +17,17 @@ class Game
 		void startTurn();
 		int howManyPlayers();
 		void roll(int roll);
-		bool wasCorrectlyAnswered();
-		bool wrongAnswer();
+		
 
 	private:
+		void wasCorrectlyAnswered();
+		void wrongAnswer();
 		void nextPlayerIndex();
 		void setCurrentPlayer();
 		void checkPlayerStatus();
 		void isRollOdd();
 		void movePlayer();
+		void getAnswer();
 		void readQuestions(int number);
 		void askQuestion();
 		std::string currentCategory();
