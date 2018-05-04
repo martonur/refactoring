@@ -93,6 +93,7 @@ void Game::isRollOdd()
 	{
 		cout << currentPlayer -> getName() << " is not getting out of the penalty box" << endl;
 		nextPlayerIndex();
+		startTurn();
 	}
 }
 
