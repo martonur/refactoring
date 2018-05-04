@@ -64,21 +64,8 @@ void Game::startTurn()
 void Game::checkPlayerStatus()
 {
 	if(currentPlayer -> isInPenaltyBox())
-	{
-		if (dice % 2 != 0)
-		{
-			currentPlayer -> getOutOfPenaltyBox();
-			cout << currentPlayer -> getName() << " is getting out of the penalty box" << endl;
-			currentPlayer -> step(dice);
-			cout << currentPlayer -> getName() << "'s new location is " << currentPlayer -> getPlace() << endl;
-			cout << "The category is " << currentCategory() << endl;
-			askQuestion();
-		}
-		else
-		{
-			cout << currentPlayer -> getName() << " is not getting out of the penalty box" << endl;
-		}
-
+	{		
+		isRollOdd();
 	}
 	else
 	{
@@ -86,6 +73,24 @@ void Game::checkPlayerStatus()
 		cout << currentPlayer -> getName() << "'s new location is " << currentPlayer -> getPlace() << endl;
 		cout << "The category is " << currentCategory() << endl;
 		askQuestion();
+	}
+}
+
+void Game::isRollOdd()
+{
+	if (dice % 2 != 0)
+	{
+		currentPlayer -> getOutOfPenaltyBox();
+		cout << currentPlayer -> getName() << " is getting out of the penalty box" << endl;
+		currentPlayer -> step(dice);
+		cout << currentPlayer -> getName() << "'s new location is " << currentPlayer -> getPlace() << endl;
+		cout << "The category is " << currentCategory() << endl;
+		askQuestion();
+	}
+	else
+	{
+		cout << currentPlayer -> getName() << " is not getting out of the penalty box" << endl;
+		nextPlayerIndex();
 	}
 }
 
