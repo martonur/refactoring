@@ -114,7 +114,7 @@ void Game::getAnswer()
 
 void Game::correctAnswer()
 {
-	cout << "Answer was corrent!!!!" << endl;
+	cout << "Answer was correct!!!!" << endl;
 	currentPlayer -> addCoin();
 	cout << currentPlayer -> getName() << " now has " << currentPlayer -> getPurse() << " Gold Coins." << endl;
 	if(!didPlayerWin())
