@@ -7,5 +7,5 @@ int main()
 	aGame.addPlayer("Chet");
 	aGame.addPlayer("Pat");
 	aGame.addPlayer("Sue");
-	aGame.startTurn();
+	aGame.startGame();
 }

@@ -12,13 +12,13 @@ class Game
 {
 	public:
 		Game();
+		void startGame();
 		bool isPlayable();
 		bool addPlayer(std::string playerName);
 		void startTurn();
 		int howManyPlayers();
 		void roll(int roll);
 		
-
 	private:
 		void correctAnswer();
 		void wrongAnswer();

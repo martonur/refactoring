@@ -9,6 +9,18 @@ Game::Game() : currentPlayerIndex(0)
 	readQuestions(50);
 }
 
+void Game::startGame()
+{
+	if(isPlayable())
+	{
+		startTurn();
+	}
+	else
+	{
+		cout << "The minimum is 2 players" << endl;
+	}
+}
+
 void Game::readQuestions(int number)
 {
 	for (int i = 0; i < number; i++)
