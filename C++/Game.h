@@ -25,6 +25,7 @@ class Game
 		void setCurrentPlayer();
 		void checkPlayerStatus();
 		void isRollOdd();
+		void movePlayer();
 		void readQuestions(int number);
 		void askQuestion();
 		std::string currentCategory();

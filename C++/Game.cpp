@@ -69,11 +69,16 @@ void Game::checkPlayerStatus()
 	}
 	else
 	{
-		currentPlayer -> step(dice);
-		cout << currentPlayer -> getName() << "'s new location is " << currentPlayer -> getPlace() << endl;
-		cout << "The category is " << currentCategory() << endl;
-		askQuestion();
+		movePlayer();
 	}
+}
+
+void Game::movePlayer()
+{
+	currentPlayer -> step(dice);
+	cout << currentPlayer -> getName() << "'s new location is " << currentPlayer -> getPlace() << endl;
+	cout << "The category is " << currentCategory() << endl;
+	askQuestion();
 }
 
 void Game::isRollOdd()
@@ -82,10 +87,7 @@ void Game::isRollOdd()
 	{
 		currentPlayer -> getOutOfPenaltyBox();
 		cout << currentPlayer -> getName() << " is getting out of the penalty box" << endl;
-		currentPlayer -> step(dice);
-		cout << currentPlayer -> getName() << "'s new location is " << currentPlayer -> getPlace() << endl;
-		cout << "The category is " << currentCategory() << endl;
-		askQuestion();
+		movePlayer();
 	}
 	else
 	{
