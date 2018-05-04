@@ -154,7 +154,7 @@ void Game::correctAnswer()
 	cout << "Answer was corrent!!!!" << endl;
 	currentPlayer -> addCoin();
 	cout << currentPlayer -> getName() << " now has " << currentPlayer -> getPurse() << " Gold Coins." << endl;
-	if(didPlayerWin())
+	if(!didPlayerWin())
 	{
 		nextPlayerIndex();
 	}
@@ -171,7 +171,7 @@ void Game::wrongAnswer()
 
 bool Game::didPlayerWin()
 {
-	return !(currentPlayer -> getPurse() == 6);
+	return (currentPlayer -> getPurse() == 6);
 }
 
 void Game::nextPlayerIndex()
