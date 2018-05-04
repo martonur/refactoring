@@ -92,22 +92,23 @@ void Game::roll(int roll)
 
 void Game::askQuestion()
 {
-	if (currentCategory() == "Pop")
+	std::string category = currentCategory();
+	if (category == "Pop")
 	{
 		cout << popQuestions.front() << endl;
 		popQuestions.pop_front();
 	}
-	if (currentCategory() == "Science")
+	else if (category == "Science")
 	{
 		cout << scienceQuestions.front() << endl;
 		scienceQuestions.pop_front();
 	}
-	if (currentCategory() == "Sports")
+	else if (category == "Sports")
 	{
 		cout << sportsQuestions.front() << endl;
 		sportsQuestions.pop_front();
 	}
-	if (currentCategory() == "Rock")
+	else if (category == "Rock")
 	{
 		cout << rockQuestions.front() << endl;
 		rockQuestions.pop_front();
