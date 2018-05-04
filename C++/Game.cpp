@@ -58,7 +58,11 @@ void Game::startTurn()
 	setCurrentPlayer();
 	cout << currentPlayer -> getName() << " is the current player" << endl;
 	cout << "They have rolled a " << dice << endl;
+	checkPlayerStatus();
+}
 
+void Game::checkPlayerStatus()
+{
 	if(currentPlayer -> isInPenaltyBox())
 	{
 		if (dice % 2 != 0)

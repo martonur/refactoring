@@ -23,6 +23,7 @@ class Game
 	private:
 		void nextPlayerIndex();
 		void setCurrentPlayer();
+		void checkPlayerStatus();
 		void readQuestions(int number);
 		void askQuestion();
 		std::string currentCategory();
