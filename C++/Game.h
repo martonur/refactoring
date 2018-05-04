@@ -14,6 +14,7 @@ class Game
 		Game();
 		bool isPlayable();
 		bool addPlayer(std::string playerName);
+		void startTurn();
 		int howManyPlayers();
 		void roll(int roll);
 		bool wasCorrectlyAnswered();

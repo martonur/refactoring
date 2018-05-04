@@ -12,9 +12,7 @@ int main()
 
 	do
 	{
-
-		aGame.roll(rand() % 5 + 1);
-
+		aGame.startTurn();
 		if (rand() % 9 == 7)
 		{
 			notAWinner = aGame.wrongAnswer();

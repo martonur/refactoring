@@ -52,12 +52,13 @@ int Game::howManyPlayers()
 	return players.size();
 }
 
-void Game::roll(int roll)
+void Game::startTurn()
 {
+	roll(rand() % 5 + 1);
 	setCurrentPlayer();
-	dice = roll;
 	cout << currentPlayer -> getName() << " is the current player" << endl;
-	cout << "They have rolled a " << dice << endl;	
+	cout << "They have rolled a " << dice << endl;
+
 	if(currentPlayer -> isInPenaltyBox())
 	{
 		if (dice % 2 != 0)
@@ -82,7 +83,11 @@ void Game::roll(int roll)
 		cout << "The category is " << currentCategory() << endl;
 		askQuestion();
 	}
+}
 
+void Game::roll(int roll)
+{
+	dice = roll;
 }
 
 void Game::askQuestion()
