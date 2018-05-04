@@ -1,4 +1,5 @@
 ﻿#include "Game.h"
+#include <ctime>
 #include <iostream>
 #include <sstream>
 
@@ -19,6 +20,7 @@ bool Game::addPlayer(string playerName){
 
 void Game::startGame()
 {
+	srand(time(0));
 	if(isPlayable())
 	{
 		startTurn();
