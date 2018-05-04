@@ -56,13 +56,13 @@ void Game::roll(int roll)
 {
 	setCurrentPlayer();
 	cout << currentPlayer -> getName() << " is the current player" << endl;
-	cout << "They have rolled a " << roll << endl;
-
+	cout << "They have rolled a " << roll << endl;	
 	if(currentPlayer -> isInPenaltyBox())
 	{
 		if (roll % 2 != 0)
 		{
 			isGettingOutOfPenaltyBox = true;
+			currentPlayer -> getOutOfPenaltyBox();
 			cout << currentPlayer -> getName() << " is getting out of the penalty box" << endl;
 			currentPlayer -> step(roll);
 			cout << currentPlayer -> getName() << "'s new location is " << currentPlayer -> getPlace() << endl;

@@ -8,7 +8,7 @@ g++ -Wall -g -O GameRunner.cpp Game.cpp Player.cpp
 if [[ -s a.out ]]
 then
     ./a.out > current_output.txt
-    diff -u original_output.txt current_output.txt > difference.txt
+    diff -u correct_output.txt current_output.txt > difference.txt
     if [[ -s difference.txt ]]
     then
         cat difference.txt
