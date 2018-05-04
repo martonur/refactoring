@@ -55,15 +55,16 @@ int Game::howManyPlayers()
 void Game::roll(int roll)
 {
 	setCurrentPlayer();
+	dice = roll;
 	cout << currentPlayer -> getName() << " is the current player" << endl;
-	cout << "They have rolled a " << roll << endl;	
+	cout << "They have rolled a " << dice << endl;	
 	if(currentPlayer -> isInPenaltyBox())
 	{
-		if (roll % 2 != 0)
+		if (dice % 2 != 0)
 		{
 			currentPlayer -> getOutOfPenaltyBox();
 			cout << currentPlayer -> getName() << " is getting out of the penalty box" << endl;
-			currentPlayer -> step(roll);
+			currentPlayer -> step(dice);
 			cout << currentPlayer -> getName() << "'s new location is " << currentPlayer -> getPlace() << endl;
 			cout << "The category is " << currentCategory() << endl;
 			askQuestion();
@@ -76,7 +77,7 @@ void Game::roll(int roll)
 	}
 	else
 	{
-		currentPlayer -> step(roll);
+		currentPlayer -> step(dice);
 		cout << currentPlayer -> getName() << "'s new location is " << currentPlayer -> getPlace() << endl;
 		cout << "The category is " << currentCategory() << endl;
 		askQuestion();
