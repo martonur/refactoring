@@ -61,7 +61,6 @@ void Game::roll(int roll)
 	{
 		if (roll % 2 != 0)
 		{
-			isGettingOutOfPenaltyBox = true;
 			currentPlayer -> getOutOfPenaltyBox();
 			cout << currentPlayer -> getName() << " is getting out of the penalty box" << endl;
 			currentPlayer -> step(roll);
@@ -72,7 +71,6 @@ void Game::roll(int roll)
 		else
 		{
 			cout << currentPlayer -> getName() << " is not getting out of the penalty box" << endl;
-			isGettingOutOfPenaltyBox = false;
 		}
 
 	}
@@ -122,42 +120,12 @@ string Game::currentCategory()
 
 bool Game::wasCorrectlyAnswered()
 {
-	if (currentPlayer -> isInPenaltyBox())
-	{
-		if (isGettingOutOfPenaltyBox)
-		{
-			cout << "Answer was correct!!!!" << endl;
-			currentPlayer -> addCoin();
-			cout << currentPlayer -> getName()
-			     << " now has "
-			     << currentPlayer -> getPurse()
-				<<  " Gold Coins." << endl;
-
-			bool winner = didPlayerWin();
-
-			nextPlayerIndex();
-			return winner;
-		}
-		else
-		{
-			nextPlayerIndex();
-			return true;
-		}
-	}
-	else
-	{
-
-		cout << "Answer was corrent!!!!" << endl;
-		currentPlayer -> addCoin();
-		cout << currentPlayer -> getName()
-				<< " now has "
-				<< currentPlayer -> getPurse()
-			<< " Gold Coins." << endl;
-
-		bool winner = didPlayerWin();
-		nextPlayerIndex();
-		return winner;
-	}
+	cout << "Answer was corrent!!!!" << endl;
+	currentPlayer -> addCoin();
+	cout << currentPlayer -> getName() << " now has " << currentPlayer -> getPurse() << " Gold Coins." << endl;
+	bool winner = didPlayerWin();
+	nextPlayerIndex();
+	return winner;
 }
 
 bool Game::wrongAnswer()

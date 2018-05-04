@@ -32,8 +32,7 @@ class Game
 		std::list<std::string> sportsQuestions;
 		std::list<std::string> rockQuestions;
 		Player* currentPlayer;
-		int currentPlayerIndex;
-		bool isGettingOutOfPenaltyBox;		
+		int currentPlayerIndex;	
 };
 
 #endif /* GAME_H_ */
